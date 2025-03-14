@@ -1,0 +1,27 @@
+{
+  "name": "node-practice",
+  "version": "1.0.0",
+  "description": "E-Shop is a fully functional e-commerce website that includes features such as cart, order history, product management (add/edit products), user authentication, and more.",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdarshKumar9002/E-Shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AdarshKumar9002/E-Shop/issues"
+  },
+  "homepage": "https://github.com/AdarshKumar9002/E-Shop#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

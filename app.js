@@ -1,13 +1,14 @@
-const http = require("http");
+const express = require('express');
+
+const app = express();
 
 const PORT = 3000;
 
-const sendResponse= (req, res) => {
-    console.log(req.header);
+const sendResponse= (req, res, next) => {
     res.write("Hello World");
     res.end();
 }
 
-const server = http.createServer(sendResponse);
+app.use(sendResponse);
 
-server.listen(PORT);
+app.listen(PORT);
