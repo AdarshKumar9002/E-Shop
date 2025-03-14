@@ -53,7 +53,68 @@ server.listen(PORT);
 
 - `listen` starts the server and makes it available on the specified port.  
 - `listen` takes a **port number** as an argument.  
+
 <br>
+<br>
+
+---
+
+<br>
+<br> 
+
+## Request Listening  
+We can check what response has been sent by the client to the server using the request object in the request listener.  
+
+### Some Request Data We Often Check  
+
+- `headers`: The headers contain information such as the content type, user-agent, and more.  
+
+- `method`: This tells us what type of HTTP request is being made (GET, POST, etc.).  
+
+- `url`: This provides the URL path that the client is requesting.  
+
+#### Examples: 
+
+```javascript
+const server = http.createServer((req, res) => {
+    console.log("Headers:", req.headers);
+    console.log("Requested URL:", req.url);
+    console.log("Request Method:", req.method);
+    res.end();
+});
+```
+
+<br>
+
 ---
 <br>
 
+## Response Handling  
+We can send a response back to the client using the response object.  
+
+### Some of the Most Used Methods of the Response Object  
+
+- `write()`: The `write()` method sends a chunk of data to the client.
+
+- `setHeader()`: You can set custom response headers using `setHeader()`.  
+
+- `statusCode`: You can set the response status code before sending the response.  
+
+#### Examples: 
+
+```javascript
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+    res.write("Hello, client!\n");
+    res.write("Hello, this is a response from the server.");
+    res.end();
+});
+```
+<br>
+<br>
+
+---
+
+<br>
+<br>
