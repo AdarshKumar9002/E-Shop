@@ -1,4 +1,4 @@
-# View Engine Documentation 
+# Template Engine 
 
 A view engine is a template engine that integrates with a web framework (like Express.js) to generate dynamic HTML content. It processes templates on the server and sends the final HTML to the client.  
 
