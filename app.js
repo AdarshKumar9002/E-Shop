@@ -1,14 +1,14 @@
 const express = require('express');
 
+const shopRoutes = require('./routes/shop');
+const pageNotFound = require('./controllers/page-not-found');
+
 const app = express();
 
 const PORT = 3000;
 
-const sendResponse= (req, res, next) => {
-    res.write("Hello World");
-    res.end();
-}
+app.use(shopRoutes);
 
-app.use(sendResponse);
+app.use(pageNotFound);
 
 app.listen(PORT);
