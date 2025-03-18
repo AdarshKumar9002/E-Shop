@@ -1,14 +1,17 @@
-const express = require('express');
+const express = require("express");
+const path = require("path");
 
-const shopRoutes = require('./routes/shop');
-const pageNotFound = require('./controllers/page-not-found');
+const shopRoutes = require("./routes/shop");
+const pageNotFound = require("./controllers/page-not-found");
 
 const app = express();
 
 const PORT = 3000;
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set("view engine", "ejs");
+app.set("views", "views");
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(shopRoutes);
 
