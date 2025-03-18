@@ -96,3 +96,36 @@ app.get('/', (req, res) => {
 });
 
 ```
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
+## Static Files
+
+To make files like CSS, JavaScript, and images accessible to the client, we serve them as **static files** using Express. This allows the browser to directly access these resources.  
+
+### Setting Up a Static Folder  
+
+Use the `express.static()` middleware to serve static files from a directory (e.g., `public/`):  
+
+```javascript
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
+```  
+
+### Usage Example  
+
+If you have a file at `public/css/style.css`, you can include it in your HTML like this:  
+
+```html
+<link rel="stylesheet" href="/css/style.css">
+```
