@@ -1,54 +1,54 @@
-# Express  
+# Express
 
-Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.  
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 
-## Simple Node Server Using Express  
+## Simple Node Server Using Express
 
-It's easier to create a server using Express than with vanilla Node.js.  
+It's easier to create a server using Express than with vanilla Node.js.
 
-### Install and Import the Express Framework  
+### Install and Import the Express Framework
 
-Since Express is not a built-in module in Node.js, we need to install it first. After installing Express, we need to import it.  
+Since Express is not a built-in module in Node.js, we need to install it first. After installing Express, we need to import it.
 
-**Install the Express Framework:**  
+**Install the Express Framework:**
 
 ```sh
 npm install express
 ```
 
-**Import the Express Framework:**  
+**Import the Express Framework:**
 
 ```javascript
 const express = require("express");
-```  
+```
 
-### Creating an Express Application  
+### Creating an Express Application
 
-To use Express, we need to create an instance of it.  
+To use Express, we need to create an instance of it.
 
 ```javascript
 const app = express();
-```  
+```
 
-### PORT Configuration  
+### PORT Configuration
 
-The server is configured to listen on port 3000.  
+The server is configured to listen on port 3000.
 
 ```javascript
 const PORT = 3000;
-```  
+```
 
-### Sending a Response  
+### Sending a Response
 
-To send a response, we will use the `app.use()` method. `app.use()` is used to assign middleware (a function that processes requests) to a specific path.  
+To send a response, we will use the `app.use()` method. `app.use()` is used to assign middleware (a function that processes requests) to a specific path.
 
-**Syntax:**  
+**Syntax:**
 
 ```javascript
 app.use(path, middleware);
-```  
+```
 
-Since we haven't assigned any path, this middleware will execute for all incoming requests.  
+Since we haven't assigned any path, this middleware will execute for all incoming requests.
 
 ```javascript
 const sendResponse = (req, res, next) => {
@@ -56,15 +56,15 @@ const sendResponse = (req, res, next) => {
   res.end();
 };
 app.use(sendResponse);
-``` 
+```
 
-### Listening to the Server  
+### Listening to the Server
 
-To start the server, we use the `listen()` method.  
+To start the server, we use the `listen()` method.
 
 ```javascript
 app.listen(PORT);
-```  
+```
 
 <br>
 <br>
@@ -72,4 +72,27 @@ app.listen(PORT);
 ---
 
 <br>
-<br> 
+<br>
+
+## Middleware
+
+Middleware functions in Express.js are functions that have access to the request object (req), the response object (res), and the next function. They are used to process requests, modify responses, or execute additional logic before passing control to the next middleware or route handler.
+
+**Example:**
+```javascript 
+app.use((req, res, next) => {
+    console.log('Middleware 1');
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log('Middleware 2');
+    next();
+});
+
+app.get('/', (req, res) => {
+    console.log('Final Route');
+    res.send('Hello!');
+});
+
+```
