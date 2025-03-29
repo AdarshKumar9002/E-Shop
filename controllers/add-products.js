@@ -2,4 +2,8 @@ const getAddProducts = (req, res, next) => {
   res.render("admin/add-products");
 };
 
-module.exports = {getAddProducts};
+const postAddProducts = (req, res, next) => {
+  res.redirect("/");
+};
+
+module.exports = { getAddProducts, postAddProducts };
